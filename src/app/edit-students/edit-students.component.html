@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="text-center">
+        <h1>Edit  Student</h1>
+    </div>
+    <form [formGroup]="addForm" novalidate class="form">
+        <input type="hidden" name="id" formControlName="id" />
+        <div class="row">
+            <div class="col-md-6">
+                <label for="firstName">First Name</label>
+                <input class="form-control" type="text" name="firstName" id="firstName" formControlName="firstName" />
+            </div>
+            <div class="col-md-6">
+                <label for="lastName">Last Name</label>
+                <input class="form-control" type="text" name="lastName" id="lastName" formControlName="lastName" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="email">Email ID</label>
+                <input class="form-control" type="text" name="email" id="email" formControlName="email" />
+            </div>
+            <div class="col-md-6">
+                <label for="password">Password</label>
+                <input class="form-control" type="text" name="password" id="password" formControlName="password" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="gender">Gender ===></label>
+                Male <input type="radio" value="male" name="gender" id="gender1" formControlName="gender" />
+                Female <input type="radio" value="female" name="gender" id="gender1" formControlName="gender" />
+            </div>
+            
+        
+            <div class="col-md-6">
+                <label for="email">Hobbies ==></label>
+                <div *ngFor="let result of HobbyArray">
+                    <input type="checkbox" [ngModel]="result.value" (ngModelChange)="result.value=$event;addForm.get('hobbyField').setValue(parse())" [ngModelOptions]="{standalone:true}">
+                    {{result.name}}
+                </div>
+               
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="country">Country</label>
+                <select name="country" id="country" formControlName="country" class="form-control">
+                    <option value="">-- Select --</option>
+                    <option value="india">India</option>
+                    <option value="china">China</option>
+                    <option value="usa">USA</option>
+                </select>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 mt-5">
+                <button class="btn btn-success" (click)="onEdit()">Edit Student</button>
+            </div>
+        </div>
+    </form>
+</div>

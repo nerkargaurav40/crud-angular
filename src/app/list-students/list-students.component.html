@@ -1,0 +1,24 @@
+<table class="table table-strip">
+    <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Gender</th>
+        <th>Hobbies</th>
+        <th>Country</th>
+        <th>Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{student.firstName}}</td>
+            <td>{{student.lastName}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.password}}</td>
+            <td>{{student.gender}}</td>
+            <td>{{student.hobbies}}</td>
+            <td>{{student.country}}</td>
+            <td><a href="edit/{{student.id}}" class="btn btn-warning">EDIT</a> | <button class="btn btn-info" (click)="deleteStudent(student.id)">DELETE</button></td>
+        </tr>
+    </tbody>
+</table>
